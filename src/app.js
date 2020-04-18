@@ -15,7 +15,7 @@ class App extends Component{
     FetchData=async (data)=>{
         this.setState({inputData:data})
         this.setState({loading:true})
-        let response= await axios.get(`https://pixabay.com/api/?key=16049560-3ba9262f7dc76fbd5f3772390&q={${this.state.inputData}}&image_type=photo&pretty=true`);
+        let response= await axios.get(`https://pixabay.com/api/?key=16049560-3ba9262f7dc76fbd5f3772390&q=${this.state.inputData}&image_type=photo&pretty=true`);
         setTimeout(()=>{
             this.setState({loading:false})
             this.setState({source: response.data.hits})
@@ -26,7 +26,7 @@ class App extends Component{
         return(
             <div className="container">
             <Search action={this.FetchData}/> 
-                {this.state.loading ? "loading..":<ShowImages d={this.state.source}/>}
+            {this.state.loading ? "loading..": <ShowImages d={this.state.source}/>}
             </div>
         )
     }
