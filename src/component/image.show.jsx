@@ -1,5 +1,6 @@
 import React from "react";
 const ShowImages = ({d})=>{
+    console.log(d);
     return(
         <div className="row" >
         {d.map(item=>(
